@@ -98,7 +98,7 @@ public class login extends JFrame implements ActionListener{
                 ResultSet rs = c.s.executeQuery(query);
                 if(rs.next()){
                     setVisible(false);
-                    new loading();
+                    new loading(username);
                 }else{
                     JOptionPane.showMessageDialog(null, "Incorrect input ");
                 }

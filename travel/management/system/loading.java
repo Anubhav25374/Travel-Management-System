@@ -6,6 +6,8 @@ import javax.swing.*;
 
 public class loading extends JFrame implements Runnable{
     Thread t;
+    JProgressBar bar;
+    String username;
 
     public void run(){
         try{
@@ -17,6 +19,7 @@ public class loading extends JFrame implements Runnable{
                 }else{
                     Thread.sleep(1000);
                     setVisible(false);
+                    new dashBoard(username);
                 }
                 Thread.sleep(50);
             }
@@ -26,10 +29,8 @@ public class loading extends JFrame implements Runnable{
         }
     }
 
-    JProgressBar bar;
-
-    loading(){
-
+    loading(String username){
+        this.username = username;
         t = new Thread(this); 
 
         setBounds(500, 150, 600, 500);
@@ -64,6 +65,6 @@ public class loading extends JFrame implements Runnable{
         setVisible(true);
     }
     public static void main(String[] args) {
-        new loading();
+        new loading("");
     }
 }
